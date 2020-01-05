@@ -4,8 +4,9 @@
   "description": "Example node express server",
   "main": "server.js",
   "scripts": {
-    "test": "n/a",
-    "start": "nodemon server.js"
+    "test": "",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "repository": {
     "type": "git",

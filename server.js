@@ -1,11 +1,9 @@
 // Dependencies
-// =============================================================
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const path = require('path');
 let storage = [];
 
 // Sets up the Express App
-// =============================================================
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -13,16 +11,21 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Routes
-// =============================================================
 
-// Basic route that sends the user first to the AJAX Page
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "index.html"));
+/* Routes
+============================================================================*/
+// Displays JSON output
+app.get('/api/posts', (req, res) => {
+  res.json(storage);
+});
+
+// If no matching route is found default to home
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 // Takes in JSON input
-app.post("/api/create", function(req, res) {
+app.post('/api/posts', (req, res) => {
   // req.body hosts is equal to the JSON post sent from the user
   // This works because of our body parsing middleware
   let newPost = req.body;
@@ -31,10 +34,11 @@ app.post("/api/create", function(req, res) {
 
   // We then add the json the user sent to the array for storage
   storage.push(newPost);
-
+  
   // We then display the JSON to the users
   res.json(storage);
 });
+
 
 // Starts the server to begin listening
 // =============================================================
