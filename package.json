@@ -1,0 +1,24 @@
+{
+  "name": "example-express-server",
+  "version": "1.0.0",
+  "description": "Example node express server",
+  "main": "server.js",
+  "scripts": {
+    "test": "n/a",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryanadiaz/example-express-server.git"
+  },
+  "author": "Ryan A. Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanadiaz/example-express-server/issues"
+  },
+  "homepage": "https://github.com/ryanadiaz/example-express-server#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
